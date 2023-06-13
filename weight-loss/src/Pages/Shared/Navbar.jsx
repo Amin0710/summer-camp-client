@@ -1,12 +1,10 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../public/assets/shapeshed-logo.png";
-// import { AuthContext } from "../../Providers/AuthProviders";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const Navbar = () => {
-	// const { , logOut } = useContext(AuthContext);
-	const user = false;
-	const loading = false;
+	const { user, loading, logOut } = useContext(AuthContext);
 
 	const handleMouseOver = () => {
 		const userName = document.getElementById("userName");
@@ -82,8 +80,7 @@ const Navbar = () => {
 									<Link to="/dashboard">Dashboard</Link>
 								</li>
 								<li>
-									{/* <button onClick={logOut}>Log Out</button> */}
-									<button>Log Out</button>
+									<button onClick={logOut}>Log Out</button>
 								</li>
 							</ul>
 						</div>
