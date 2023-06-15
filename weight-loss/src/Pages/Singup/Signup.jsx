@@ -91,8 +91,8 @@ const SignUp = () => {
 				<title>Bistro Boss | Sign Up</title>
 			</Helmet>
 			<div className="hero min-h-screen bg-[#00AEEF] rounded">
-				<div className="hero-content flex-col lg:flex-row-reverse  bg-[#FFFFFF] rounded">
-					<div className="text-center lg:text-left">
+				<div className="hero-content flex-col lg:flex-row-reverse my-1 bg-[#FFFFFF] rounded">
+					<div className="text-center  md:w-1/2 lg:text-center">
 						<h1 className="text-5xl font-bold mb-4 text-[#00AEEF]">
 							Sign up now!
 						</h1>
@@ -115,7 +115,7 @@ const SignUp = () => {
 							/>
 						)}
 					</div>
-					<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl  text-[#FF6600]">
+					<div className="card md:w-1/2 max-w-sm shadow-2xl  text-[#FF6600]">
 						<form onSubmit={handleSubmit(onSubmit)} className="card-body">
 							<div className="form-control">
 								<label className="label">
@@ -222,12 +222,14 @@ const SignUp = () => {
 								<label className="label">
 									<span className="label-text  text-[#FF6600]">Gender</span>
 								</label>
-								<input
-									type="text"
+								<select
 									name="gender"
-									placeholder="Gender"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
-								/>
+									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]">
+									<option value="">Select Gender</option>
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+									<option value="other">Other</option>
+								</select>
 							</div>
 							<div className="form-control">
 								<label className="label">
@@ -236,7 +238,7 @@ const SignUp = () => {
 									</span>
 								</label>
 								<input
-									type="text"
+									type="number"
 									name="phoneNumber"
 									placeholder="Phone Number"
 									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
@@ -284,7 +286,7 @@ const SignUp = () => {
 
 						<p className="my-4 text-center">
 							Already have an account
-							<Link className="text-[#00AEEF] font-bold" to="/signup">
+							<Link className="text-[#00AEEF] font-bold" to="/login">
 								{" "}
 								Login
 							</Link>{" "}
