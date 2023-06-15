@@ -88,7 +88,7 @@ const SignUp = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Bistro Boss | Sign Up</title>
+				<title>ShapeShed | Sign Up</title>
 			</Helmet>
 			<div className="hero min-h-screen bg-[#00AEEF] rounded">
 				<div className="hero-content flex-col lg:flex-row-reverse my-1 bg-[#FFFFFF] rounded">
