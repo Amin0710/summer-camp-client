@@ -17,7 +17,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="navbar flex items-center justify-center bg-[#FFFFFF] text-[#00AEEF] bg-opacity-90">
+		<div className="navbar flex items-center justify-center bg-[#FFFAFA] text-[#00AEEF] bg-opacity-90">
 			<div className="container">
 				<div className="flex-1">
 					<div className="flex items-center">
@@ -45,7 +45,7 @@ const Navbar = () => {
 					{loading ? (
 						<div className="flex justify-center">
 							<button
-								className="bg-warning text-white px-4 py-2 rounded-md flex items-center"
+								className="bg-warning text-[#FFFAFA] px-4 py-2 rounded-md flex items-center"
 								disabled>
 								<span className="animate-spin mr-2 h-4 w-4 border-t-2 border-b-2 border-white rounded-full"></span>
 								<span className="hidden sm:inline">Loading...</span>
@@ -75,7 +75,7 @@ const Navbar = () => {
 							</label>
 							<ul
 								tabIndex={0}
-								className="menu menu-compact dropdown-content mt-3 shadow bg-white rounded-box relative z-10">
+								className="menu menu-compact dropdown-content mt-3 shadow bg-[#FFFAFA] rounded-box relative z-10">
 								<li>
 									<Link to="/dashboard">Dashboard</Link>
 								</li>

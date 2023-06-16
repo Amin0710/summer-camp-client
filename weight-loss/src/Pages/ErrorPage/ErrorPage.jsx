@@ -8,7 +8,7 @@ const ErrorPage = () => {
 				<title>SS | 404</title>
 			</Helmet>
 			<div className="flex items-center justify-center h-screen bg-[#00AEEF]">
-				<section className="bg-[#FFFFFF] p-10 rounded">
+				<section className="bg-[#FFFAFA] p-10 rounded">
 					<div className="container">
 						<div className="text-center">
 							<div

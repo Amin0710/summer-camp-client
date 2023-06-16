@@ -8,7 +8,7 @@ const ClassCard = ({ c }) => {
 			<figure>
 				<img src={c.image} alt="Shoes" className="h-[350px]" />
 			</figure>
-			<div className="card-body text-[#FFFFFF]">
+			<div className="card-body text-[#FFFAFA]">
 				<h2 className="card-title">{c.name}</h2>
 				<div className="flex flex-col items-start">
 					<div className="text">
@@ -23,7 +23,7 @@ const ClassCard = ({ c }) => {
 				</div>
 				<div>
 					<Link to={`/games/${c._id}`}>
-						<button className="btn bg-[#FFFFFF] text-[#00AEEF] w-full">
+						<button className="btn bg-[#FFFAFA] text-[#00AEEF] w-full">
 							View Details
 						</button>
 					</Link>

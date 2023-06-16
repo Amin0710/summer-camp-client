@@ -23,7 +23,7 @@ const Login = () => {
 	const from = location.state?.from?.pathname || "/";
 
 	useEffect(() => {
-		loadCaptchaEnginge(8, "#FFFFFF", "#00AEEF");
+		loadCaptchaEnginge(8, "#FFFAFA", "#00AEEF");
 	}, []);
 
 	const [mounted, setMounted] = useState(false);
@@ -106,7 +106,7 @@ const Login = () => {
 				<title>ShapeShed | Login</title>
 			</Helmet>
 			<div className="hero min-h-screen bg-[#00AEEF] rounded">
-				<div className="hero-content flex-col md:flex-row-reverse bg-[#FFFFFF] rounded">
+				<div className="hero-content flex-col md:flex-row-reverse bg-[#FFFAFA] rounded">
 					<div className="text-center md:w-1/2 lg:text-center">
 						<h1 className="text-5xl font-bold mb-4 text-[#00AEEF]">
 							Login now!
@@ -115,7 +115,7 @@ const Login = () => {
 							<div className="flex flex-col items-center">
 								<progress className="progress w-56 bg-red-500 mb-4"></progress>
 								<progress className="progress w-56 bg-blue-500 mb-4"></progress>
-								<progress className="progress w-56 bg-white mb-4"></progress>
+								<progress className="progress w-56 bg-[#FFFAFA] mb-4"></progress>
 								<progress className="progress w-56 bg-black mb-4"></progress>
 								<progress className="progress w-56 bg-green-500 mb-4"></progress>
 								<progress className="progress w-56 bg-yellow-500 mb-4"></progress>
@@ -140,7 +140,7 @@ const Login = () => {
 									type="email"
 									name="email"
 									placeholder="email"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 							</div>
 							<div className="form-control">
@@ -151,7 +151,7 @@ const Login = () => {
 									type="password"
 									name="password"
 									placeholder="password"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 							</div>
 							<div className="form-control">
@@ -163,20 +163,20 @@ const Login = () => {
 									type="text"
 									name="captcha"
 									placeholder="type the captcha above"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 							</div>
 							<div className="form-control mt-6">
 								<input
 									disabled={disabled}
-									className="btn bg-[#00AEEF] text-[#FFFFFF]"
+									className="btn bg-[#00AEEF] text-[#FFFAFA]"
 									type="submit"
 									value="Login"
 								/>
 							</div>
 						</form>
 						<button
-							className="btn flex items-center mx-8 bg-[#00AEEF] text-[#FFFFFF]"
+							className="btn flex items-center mx-8 bg-[#00AEEF] text-[#FFFAFA]"
 							onClick={handleGoogleLoginLocation}>
 							Login with
 							<img src={google} alt="" className="ml-1 btn-icon w-5 h-5" />

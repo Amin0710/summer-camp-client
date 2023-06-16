@@ -95,7 +95,7 @@ const SignUp = () => {
 				<title>ShapeShed | Sign Up</title>
 			</Helmet>
 			<div className="hero min-h-screen bg-[#00AEEF] rounded">
-				<div className="hero-content flex-col lg:flex-row-reverse my-1 bg-[#FFFFFF] rounded">
+				<div className="hero-content flex-col lg:flex-row-reverse my-1 bg-[#FFFAFA] rounded">
 					<div className="text-center  md:w-1/2 lg:text-center">
 						<h1 className="text-5xl font-bold mb-4 text-[#00AEEF]">
 							Sign up now!
@@ -104,7 +104,7 @@ const SignUp = () => {
 							<div className="flex flex-col items-center">
 								<progress className="progress w-56 bg-red-500 mb-4"></progress>
 								<progress className="progress w-56 bg-blue-500 mb-4"></progress>
-								<progress className="progress w-56 bg-white mb-4"></progress>
+								<progress className="progress w-56 bg-[#FFFAFA] mb-4"></progress>
 								<progress className="progress w-56 bg-black mb-4"></progress>
 								<progress className="progress w-56 bg-green-500 mb-4"></progress>
 								<progress className="progress w-56 bg-yellow-500 mb-4"></progress>
@@ -130,7 +130,7 @@ const SignUp = () => {
 									{...register("name", { required: true })}
 									name="name"
 									placeholder="Name"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 								{errors.name && (
 									<span className="text-red-600">Name is required</span>
@@ -145,7 +145,7 @@ const SignUp = () => {
 									{...register("email", { required: true })}
 									name="email"
 									placeholder="email"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 								{errors.email && (
 									<span className="text-red-600">Email is required</span>
@@ -166,7 +166,7 @@ const SignUp = () => {
 									id="password"
 									name="password"
 									placeholder="password"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 								{errors.password?.type === "required" && (
 									<p className="text-red-600">Password is required</p>
@@ -200,7 +200,7 @@ const SignUp = () => {
 											value === watch("password") || "Passwords do not match.",
 									})}
 									placeholder="Confirm Password"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 								{errors.confirmPassword && (
 									<p className="text-red-600">
@@ -216,7 +216,7 @@ const SignUp = () => {
 									type="text"
 									{...register("photoURL", { required: true })}
 									placeholder="Photo URL"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 								{errors.photoURL && (
 									<span className="text-red-600">Photo URL is required</span>
@@ -229,7 +229,7 @@ const SignUp = () => {
 								<select
 									name="gender"
 									{...register("gender")}
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]">
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]">
 									<option value="">Select Gender</option>
 									<option value="male">Male</option>
 									<option value="female">Female</option>
@@ -247,7 +247,7 @@ const SignUp = () => {
 									{...register("phoneNumber")}
 									name="phoneNumber"
 									placeholder="Phone Number"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 							</div>
 							<div className="form-control">
@@ -259,7 +259,7 @@ const SignUp = () => {
 									{...register("address")}
 									name="address"
 									placeholder="Address"
-									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
+									className="input input-bordered text-[#FF6600] bg-[#FFFAFA]"
 								/>
 							</div>
 							<div className="flex items-center">
@@ -277,13 +277,13 @@ const SignUp = () => {
 							<div className="form-control mt-6">
 								<input
 									disabled={!accepted}
-									className="btn bg-[#00AEEF] text-[#FFFFFF]"
+									className="btn bg-[#00AEEF] text-[#FFFAFA]"
 									type="submit"
 									value="Sign Up"
 								/>
 							</div>
 							<button
-								className="btn flex items-center bg-[#00AEEF] text-[#FFFFFF]"
+								className="btn flex items-center bg-[#00AEEF] text-[#FFFAFA]"
 								onClick={handleGoogleLoginLocation}>
 								Login with
 								<img src={google} alt="" className="ml-1 btn-icon w-5 h-5" />

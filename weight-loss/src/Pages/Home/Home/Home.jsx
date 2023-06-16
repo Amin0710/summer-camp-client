@@ -38,7 +38,7 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div className="h-screen overflow-y-auto bg-white">
+		<div className="h-screen overflow-y-auto bg-[#FFFAFA]">
 			<ToastContainer
 				position="top-right"
 				autoClose={10000}
