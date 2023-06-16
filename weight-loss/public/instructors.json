@@ -1,0 +1,23 @@
+[
+	{
+		"image": "instructor1.jpg",
+		"name": "John Doe",
+		"email": "johndoe@example.com",
+		"classesTaken": 2,
+		"classes": ["Zumba Fitness", "Total Body Burn"]
+	},
+	{
+		"image": "instructor2.jpg",
+		"name": "Jane Smith",
+		"email": "janesmith@example.com",
+		"classesTaken": 2,
+		"classes": [" Yoga Dynamo", "Kickboxing Cardio"]
+	},
+	{
+		"image": "instructor3.jpg",
+		"name": "David Johnson",
+		"email": "davidjohnson@example.com",
+		"classesTaken": 2,
+		"classes": ["Dance Your Pounds Off", "Power Shred"]
+	}
+]

@@ -1,0 +1,44 @@
+[
+	{
+		"image": "https://www.growinnsteps.com/wp-content/uploads/2022/06/dancer-zumba-fitness-training-dance-studio-scaled.jpg",
+		"name": "Zumba Fitness",
+		"instructorName": "John Doe",
+		"availableSeats": 20,
+		"price": 50
+	},
+	{
+		"image": "https://www.verywellfit.com/thmb/mgb3ok3Vdi3VnFN0gX-Zoc6lra8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/battle-rope-waves-58c8318e5f9b58af5cfcf624.jpg",
+		"name": "Total Body Burn",
+		"instructorName": "John Doe",
+		"availableSeats": 15,
+		"price": 60
+	},
+	{
+		"image": "https://insiderguides.com.au/wp-content/uploads/2018/04/yoga.jpeg",
+		"name": "Yoga Dynamo",
+		"instructorName": "Jane Smith",
+		"availableSeats": 10,
+		"price": 45
+	},
+	{
+		"image": "https://img.livestrong.com/-/clsd/getty/ec8b4453197b4010845efd386b172eb8.jpg",
+		"name": "Kickboxing Cardio",
+		"instructorName": "Jane Smith",
+		"availableSeats": 25,
+		"price": 55
+	},
+	{
+		"image": "https://www.dancedispatches.com/wp-content/uploads/2020/05/shahil_BollyX-instructor.jpg",
+		"name": "Dance Your Pounds Off",
+		"instructorName": "David Johnson",
+		"availableSeats": 30,
+		"price": 70
+	},
+	{
+		"image": "https://www.genesisfitness.com.au/application/files/cache/ba894bf15cd7470ba10ad74ffd8005a7.jpg",
+		"name": "Power Shred",
+		"instructorName": "David Johnson",
+		"availableSeats": 12,
+		"price": 65
+	}
+]

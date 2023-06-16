@@ -17,7 +17,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="navbar flex items-center justify-center bg-[#FFFFFF] text-[#00AEEF]">
+		<div className="navbar flex items-center justify-center bg-[#FFFFFF] text-[#00AEEF] bg-opacity-90">
 			<div className="container">
 				<div className="flex-1">
 					<div className="flex items-center">
@@ -31,7 +31,7 @@ const Navbar = () => {
 					</div>
 				</div>
 				<div className="flex align-middle justify-center">
-					<ul className="menu menu-horizontal px-1">
+					<ul className="menu menu-horizontal">
 						<li>
 							<Link to="/">Home</Link>
 						</li>
@@ -61,21 +61,21 @@ const Navbar = () => {
 						)
 					)}
 					{!!user && (
-						<div className="dropdown dropdown-end">
-							<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+						<div className="dropdown dropdown-end  items-center justify-center">
+							<label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
 								<div
 									className="w-10 rounded-full"
 									onMouseOver={handleMouseOver}
 									onMouseOut={handleMouseOut}>
 									<img src={user?.photoURL || user?.displayName} />
 								</div>
-								<p className="mt-5 invisible" id="userName">
+								<p className="mt-5 invisible relative z-10" id="userName">
 									{user?.displayName}
 								</p>
 							</label>
 							<ul
 								tabIndex={0}
-								className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+								className="menu menu-compact dropdown-content mt-3 shadow bg-white rounded-box relative z-10">
 								<li>
 									<Link to="/dashboard">Dashboard</Link>
 								</li>

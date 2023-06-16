@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Pages/Shared/Footer";
-import Navbar from "../Pages/Shared/Navbar";
+// import Navbar from "../Pages/Shared/Navbar";
 
 const Layout = () => {
 	const location = useLocation();
@@ -8,7 +8,7 @@ const Layout = () => {
 	const noHeaderFooter = location.pathname.includes("four-oh-four");
 	return (
 		<div className="flex flex-col min-h-screen">
-			{noHeaderFooter || <Navbar></Navbar>}
+			{/* {noHeaderFooter || <Navbar></Navbar>} */}
 			<div className="flex-grow">
 				<Outlet></Outlet>
 			</div>

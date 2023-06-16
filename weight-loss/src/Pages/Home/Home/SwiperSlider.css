@@ -1,0 +1,9 @@
+@font-face {
+	font-family: "Cassandra";
+	src: url("../../../Fonts/CassandraPersonalUseRegular-3BjG.ttf")
+		format("truetype");
+}
+@font-face {
+	font-family: "BungeeShade";
+	src: url("../../../Fonts/BungeeShade-Regular.ttf") format("truetype");
+}
