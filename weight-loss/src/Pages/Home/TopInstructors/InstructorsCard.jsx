@@ -11,6 +11,7 @@ const InstructorsCard = ({ instructor }) => {
 			<div className="card-body text-[#FFFAFA]">
 				<h2 className="card-title">{instructor.name}</h2>
 				<div className="flex flex-col items-start">
+					<div className="text">Email: {instructor.email}</div>
 					<div className="text">Classes: {instructor.classes}</div>
 				</div>
 				<div>

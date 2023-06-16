@@ -73,7 +73,7 @@ const Navbar = () => {
 									onMouseOut={handleMouseOut}>
 									<img src={user?.photoURL || user?.displayName} />
 								</div>
-								<p className="mt-5 invisible relative z-10" id="userName">
+								<p className="mt-5 me-3 invisible relative z-10" id="userName">
 									{user?.displayName}
 								</p>
 							</label>

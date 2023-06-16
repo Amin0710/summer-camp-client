@@ -10,9 +10,6 @@ import TopInstructors from "../TopInstructors/TopInstructors";
 import ExtraSection from "../ExtraSection";
 
 const Home = () => {
-	<Helmet>
-		<title>ShapeShed | Home</title>
-	</Helmet>;
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/";
 
@@ -38,30 +35,35 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div className="h-screen overflow-y-auto bg-[#FFFAFA]">
-			<ToastContainer
-				position="top-right"
-				autoClose={10000}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				toastStyle={{
-					backgroundColor: "transparent",
-				}}
-			/>
-			<div className="relative z-20">
-				<Navbar></Navbar>
+		<>
+			<Helmet>
+				<title>ShapeShed | Home</title>
+			</Helmet>
+			<div className="h-screen overflow-y-auto bg-[#FFFAFA]">
+				<ToastContainer
+					position="top-right"
+					autoClose={10000}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					toastStyle={{
+						backgroundColor: "transparent",
+					}}
+				/>
+				<div className="relative z-20">
+					<Navbar></Navbar>
+				</div>
+				<div className="relative top-[-68px]">
+					<SwiperSlider></SwiperSlider>
+				</div>
+				<TopClasses></TopClasses>
+				<TopInstructors></TopInstructors>
+				<ExtraSection></ExtraSection>
 			</div>
-			<div className="relative top-[-68px]">
-				<SwiperSlider></SwiperSlider>
-			</div>
-			<TopClasses></TopClasses>
-			<TopInstructors></TopInstructors>
-			<ExtraSection></ExtraSection>
-		</div>
+		</>
 	);
 };
 
