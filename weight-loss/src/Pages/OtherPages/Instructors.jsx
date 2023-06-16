@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLoaderData } from "react-router-dom";
 import InstructorsCard from "../Home/TopInstructors/InstructorsCard";
 
 const Instructors = () => {
-	const [instructors, setInstructors] = useState([]);
-
-	useEffect(() => {
-		fetch("http://localhost:5001/instructors")
-			.then((res) => res.json())
-			.then((data) => setInstructors(data))
-			.catch((error) => console.error(error));
-	}, []);
+	const instructors = useLoaderData();
 
 	return (
 		<>

@@ -25,8 +25,8 @@ const TopClasses = () => {
 				Popular Classes
 			</h1>
 			<div className="flex flex-wrap mt-4 gap-1 justify-around">
-				{topSixClasses.map((c) => (
-					<ClassCard key={c._id} c={c}></ClassCard>
+				{topSixClasses.map((classes) => (
+					<ClassCard key={classes._id} classes={classes}></ClassCard>
 				))}
 			</div>
 		</div>

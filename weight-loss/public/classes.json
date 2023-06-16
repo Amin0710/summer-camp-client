@@ -40,5 +40,63 @@
 		"instructorName": "David Johnson",
 		"availableSeats": 12,
 		"price": 65
-	}
+	},
+	[
+		{
+			"image": "https://static01.nyt.com/images/2016/12/02/well/move/yoga_body_images-slide-HNVD/yoga_body_images-slide-HNVD-superJumbo.jpg",
+			"name": "Yoga Flow",
+			"instructorName": "Sarah Anderson",
+			"availableSeats": 20,
+			"price": 50
+		},
+		{
+			"image": "https://www.orbitfitness.com.au/img/cms/HIIT%20Workouts.jpg",
+			"name": "HIIT Training",
+			"instructorName": "Sarah Anderson",
+			"availableSeats": 18,
+			"price": 55
+		},
+		{
+			"image": "https://www.phitosophy.com/wp-content/uploads/2021/12/beginner-and-intermediate-pilates.jpeg",
+			"name": "Pilates",
+			"instructorName": "Sarah Anderson",
+			"availableSeats": 15,
+			"price": 60
+		},
+		{
+			"image": "https://clubwoodside.com/wp-content/uploads/2019/02/Woodside_GX_Boxing-1080x675-1.jpg",
+			"name": "Boxing Bootcamp",
+			"instructorName": "Emily Wilson",
+			"availableSeats": 25,
+			"price": 70
+		},
+		{
+			"image": "https://i.ytimg.com/vi/sAapLQCASOE/maxresdefault.jpg",
+			"name": "Barre Sculpt",
+			"instructorName": "Emily Wilson",
+			"availableSeats": 12,
+			"price": 65
+		},
+		{
+			"image": "https://simplifaster.com/wp-content/uploads/2018/02/Full-Squat.jpg",
+			"name": "Strength Training",
+			"instructorName": "Emily Wilson",
+			"availableSeats": 20,
+			"price": 55
+		},
+		{
+			"image": "https://www.piloxing.com/hubfs/group-piloxing-punching.jpg",
+			"name": "Piloxing",
+			"instructorName": "Emily Wilson",
+			"availableSeats": 18,
+			"price": 50
+		},
+		{
+			"image": "https://coac.swellclubs.com/wp-content/uploads/sites/3/2022/09/coac-october-blog-What-is-Spin-Class.jpg",
+			"name": "Spin Cycle",
+			"instructorName": "Michael Brown",
+			"availableSeats": 15,
+			"price": 60
+		}
+	]
 ]
