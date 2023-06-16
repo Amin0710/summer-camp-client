@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import google from "../../assets/google.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
 import logo from "../../../public/assets/shapeshed-logo.png";
 
@@ -12,14 +12,14 @@ const SignUp = () => {
 		watch,
 		register,
 		handleSubmit,
-		// reset,
+		reset,
 		formState: { errors },
 	} = useForm();
 	const [error, setError] = useState("");
 	const [accepted, setAccepted] = useState(false);
 	const {
 		createUser,
-		// updateUserProfile,
+		updateUserProfile,
 		loading,
 		handleGoogleLogin,
 		googleError,
@@ -37,34 +37,38 @@ const SignUp = () => {
 		setError("");
 		createUser(data.email, data.password)
 			.then(() => {
-				navigate("/login", { replace: true });
-
-				// updateUserProfile(data.name, data.photoURL)
-				// 	.then(() => {
-				// 		const saveUser = { name: data.name, email: data.email };
-				// 		fetch("https://bistro-boss-server-fawn.vercel.app/users", {
-				// 			method: "POST",
-				// 			headers: {
-				// 				"content-type": "application/json",
-				// 			},
-				// 			body: JSON.stringify(saveUser),
-				// 		})
-				// 			.then((res) => res.json())
-				// 			.then((data) => {
-				// 				if (data.insertedId) {
-				// 					reset();
-				// 					Swal.fire({
-				// 						position: "top-end",
-				// 						icon: "success",
-				// 						title: "User created successfully.",
-				// 						showConfirmButton: false,
-				// 						timer: 1500,
-				// 					});
-				// 					navigate("/");
-				// 				}
-				// 			});
-				// 	})
-				// 	.catch((error) => console.log(error));
+				updateUserProfile(data.name, data.photoURL)
+					.then(() => {
+						const saveUser = {
+							name: data.name,
+							email: data.email,
+							gender: data.gender,
+							password: data.password,
+							phoneNumber: data.phoneNumber,
+						};
+						fetch("http://localhost:5001/users", {
+							method: "POST",
+							headers: {
+								"content-type": "application/json",
+							},
+							body: JSON.stringify(saveUser),
+						})
+							.then((res) => res.json())
+							.then((data) => {
+								if (data.insertedId) {
+									reset();
+									Swal.fire({
+										position: "top-end",
+										icon: "success",
+										title: "User created successfully.",
+										showConfirmButton: false,
+										timer: 1500,
+									});
+									navigate("/login", { replace: true });
+								}
+							});
+					})
+					.catch((error) => console.log(error));
 			})
 			.catch((error) => {
 				console.log(error);
@@ -224,6 +228,7 @@ const SignUp = () => {
 								</label>
 								<select
 									name="gender"
+									{...register("gender")}
 									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]">
 									<option value="">Select Gender</option>
 									<option value="male">Male</option>
@@ -239,6 +244,7 @@ const SignUp = () => {
 								</label>
 								<input
 									type="number"
+									{...register("phoneNumber")}
 									name="phoneNumber"
 									placeholder="Phone Number"
 									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
@@ -250,6 +256,7 @@ const SignUp = () => {
 								</label>
 								<input
 									type="text"
+									{...register("address")}
 									name="address"
 									placeholder="Address"
 									className="input input-bordered text-[#FF6600] bg-[#FFFFFF]"
