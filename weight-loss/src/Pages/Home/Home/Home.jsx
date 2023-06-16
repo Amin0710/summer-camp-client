@@ -57,11 +57,6 @@ const Home = () => {
 			</div>
 			<div className="relative top-[-68px]">
 				<SwiperSlider></SwiperSlider>
-				<p
-					className="text-[#00AEEF]  text-2xl  flex items-center justify-center"
-					style={{ fontFamily: "BungeeShade" }}>
-					Join Our Program Today
-				</p>
 			</div>
 			<TopClasses></TopClasses>
 			<TopInstructors></TopInstructors>

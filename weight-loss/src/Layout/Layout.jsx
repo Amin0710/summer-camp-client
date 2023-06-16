@@ -1,18 +1,21 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Pages/Shared/Footer";
-// import Navbar from "../Pages/Shared/Navbar";
+import Navbar from "../Pages/Shared/Navbar";
 
 const Layout = () => {
 	const location = useLocation();
 
-	const noHeaderFooter = location.pathname.includes("four-oh-four");
+	const noHeader =
+		location.pathname.includes("four-oh-four") || location.pathname === "/";
+	const noFooter = location.pathname.includes("four-oh-four");
+
 	return (
 		<div className="flex flex-col min-h-screen">
-			{/* {noHeaderFooter || <Navbar></Navbar>} */}
+			{noHeader || <Navbar></Navbar>}
 			<div className="flex-grow">
 				<Outlet></Outlet>
 			</div>
-			{noHeaderFooter || (
+			{noFooter || (
 				<div className="mt-auto">
 					<Footer></Footer>
 				</div>

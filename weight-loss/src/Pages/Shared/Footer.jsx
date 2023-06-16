@@ -3,7 +3,7 @@ import logo from "../../../public/assets/shapeshed-logo.png";
 
 const Footer = () => {
 	return (
-		<footer className="footer footer-center p-10 bg-[#FFFAFA] text-[#FF6600] rounded">
+		<footer className="footer footer-center p-10 bg-[#333333] text-[#FF6600] rounded">
 			<div className="grid grid-flow-col gap-4">
 				<a className="link link-hover">About us</a>
 				<a className="link link-hover">Contact</a>

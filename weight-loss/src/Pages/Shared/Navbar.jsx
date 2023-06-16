@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../../public/assets/shapeshed-logo.png";
 import { AuthContext } from "../../Providers/AuthProviders";
 
@@ -16,12 +16,16 @@ const Navbar = () => {
 		userName.classList.add("invisible");
 	};
 
+	const location = useLocation();
+	const customOpacity = location.pathname === "/" ? "bg-opacity-30" : "";
+
 	return (
-		<div className="navbar flex items-center justify-center bg-[#FFFAFA] text-[#00AEEF] bg-opacity-90">
+		<div
+			className={`navbar flex items-center justify-center bg-[#333333] text-[#FF6600] ${customOpacity}`}>
 			<div className="container">
 				<div className="flex-1">
-					<div className="flex items-center">
-						<Link to="/" className="btn btn-ghost">
+					<div className="flex items-center ">
+						<Link to="/" className="btn btn-ghost bg-[#333333] h-full ">
 							<img
 								src={logo}
 								alt=""
@@ -30,7 +34,7 @@ const Navbar = () => {
 						</Link>
 					</div>
 				</div>
-				<div className="flex align-middle justify-center">
+				<div className="flex align-middle justify-center bg-[#F5F5F5] rounded">
 					<ul className="menu menu-horizontal">
 						<li>
 							<Link to="/">Home</Link>
@@ -45,7 +49,7 @@ const Navbar = () => {
 					{loading ? (
 						<div className="flex justify-center">
 							<button
-								className="bg-warning text-[#FFFAFA] px-4 py-2 rounded-md flex items-center"
+								className="bg-warning text-[#F5F5F5] px-4 py-2 rounded-md flex items-center"
 								disabled>
 								<span className="animate-spin mr-2 h-4 w-4 border-t-2 border-b-2 border-white rounded-full"></span>
 								<span className="hidden sm:inline">Loading...</span>
@@ -75,7 +79,7 @@ const Navbar = () => {
 							</label>
 							<ul
 								tabIndex={0}
-								className="menu menu-compact dropdown-content mt-3 shadow bg-[#FFFAFA] rounded-box relative z-10">
+								className="menu menu-compact dropdown-content mt-3 shadow bg-[#F5F5F5] rounded-box relative z-10">
 								<li>
 									<Link to="/dashboard">Dashboard</Link>
 								</li>
