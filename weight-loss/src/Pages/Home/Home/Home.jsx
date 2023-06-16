@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import SwiperSlider from "../Swiper/SwiperSlider";
 import Navbar from "../../Shared/Navbar";
 import TopClasses from "../TopClasses/TopClasses";
+import TopInstructors from "../TopInstructors/TopInstructors";
+import ExtraSection from "../ExtraSection";
 
 const Home = () => {
 	<Helmet>
@@ -62,6 +64,8 @@ const Home = () => {
 				</p>
 			</div>
 			<TopClasses></TopClasses>
+			<TopInstructors></TopInstructors>
+			<ExtraSection></ExtraSection>
 		</div>
 	);
 };

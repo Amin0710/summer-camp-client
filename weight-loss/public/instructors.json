@@ -1,23 +1,50 @@
 [
 	{
-		"image": "instructor1.jpg",
+		"image": "https://i.ibb.co/LRFk5gx/christopher-campbell-r-DEOVt-E7v-Os-unsplash.jpg",
 		"name": "John Doe",
 		"email": "johndoe@example.com",
 		"classesTaken": 2,
 		"classes": ["Zumba Fitness", "Total Body Burn"]
 	},
 	{
-		"image": "instructor2.jpg",
+		"image": "https://i.ibb.co/SdK4Xtv/craig-mckay-jm-URdhtm7-Ng-unsplash.jpg",
 		"name": "Jane Smith",
 		"email": "janesmith@example.com",
 		"classesTaken": 2,
 		"classes": [" Yoga Dynamo", "Kickboxing Cardio"]
 	},
 	{
-		"image": "instructor3.jpg",
+		"image": "https://i.ibb.co/WfZBmYb/jonas-kakaroto-mj-Rwhvq-EC0-U-unsplash.jpg",
 		"name": "David Johnson",
 		"email": "davidjohnson@example.com",
 		"classesTaken": 2,
 		"classes": ["Dance Your Pounds Off", "Power Shred"]
+	},
+
+	{
+		"image": "https://i.ibb.co/S5KzwyG/kelly-sikkema-JN0-SUc-TOig0-unsplash.jpg",
+		"name": "Sarah Anderson",
+		"email": "sarahanderson@example.com",
+		"classesTaken": 3,
+		"classes": ["Yoga Flow", "HIIT Training", "Pilates"]
+	},
+	{
+		"image": "https://i.ibb.co/xS9S8xn/vicky-hladynets-C8-Ta0gw-Pb-Qg-unsplash.jpg",
+		"name": "Michael Brown",
+		"email": "michaelbrown@example.com",
+		"classesTaken": 1,
+		"classes": ["Spin Cycle"]
+	},
+	{
+		"image": "https://i.ibb.co/LJyGM8Y/sergio-de-paula-c-Gmwf-HBDzk-unsplash.jpg",
+		"name": "Emily Wilson",
+		"email": "emilywilson@example.com",
+		"classesTaken": 4,
+		"classes": [
+			"Boxing Bootcamp",
+			"Barre Sculpt",
+			"Strength Training",
+			"Piloxing"
+		]
 	}
 ]
