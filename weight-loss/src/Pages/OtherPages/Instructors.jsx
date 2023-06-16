@@ -23,11 +23,6 @@ const Instructors = () => {
 								key={instructor._id}
 								instructor={instructor}></InstructorsCard>
 						))}
-						{instructors.map((instructor) => (
-							<InstructorsCard
-								key={instructor._id}
-								instructor={instructor}></InstructorsCard>
-						))}
 					</div>
 				</div>
 			</div>
