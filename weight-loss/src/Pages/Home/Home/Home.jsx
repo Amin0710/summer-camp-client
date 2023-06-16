@@ -3,8 +3,9 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SwiperSlider from "./SwiperSlider";
+import SwiperSlider from "../Swiper/SwiperSlider";
 import Navbar from "../../Shared/Navbar";
+import TopClasses from "../TopClasses/TopClasses";
 
 const Home = () => {
 	<Helmet>
@@ -60,6 +61,7 @@ const Home = () => {
 					Join Our Program Today
 				</p>
 			</div>
+			<TopClasses></TopClasses>
 		</div>
 	);
 };
