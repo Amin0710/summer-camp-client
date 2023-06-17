@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { MdDeleteForever, MdPayment } from "react-icons/md";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyClassesRow = ({ myClass }) => {
 	const { user } = useContext(AuthContext);
@@ -69,9 +70,11 @@ const MyClassesRow = ({ myClass }) => {
 			<td className="text-center px-0">${myClass.price}</td>
 			<th className="text-center">
 				<div>
-					<button className="btn bg-[#FFFAFA] text-[#00AEEF] text-3xl px-2 me-2">
-						<MdPayment /> <p className="text-sm">Pay Now</p>
-					</button>
+					<Link to="/payment">
+						<button className="btn bg-[#FFFAFA] text-[#00AEEF] text-3xl px-2 me-2">
+							<MdPayment /> <p className="text-sm">Pay Now</p>
+						</button>
+					</Link>
 				</div>
 			</th>
 			<th className="text-center">

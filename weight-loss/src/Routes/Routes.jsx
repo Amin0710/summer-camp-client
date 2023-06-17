@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import Classes from "../Pages/OtherPages/Classes";
 import Instructors from "../Pages/OtherPages/Instructors";
 import InstructorsClasses from "../Pages/OtherPages/InstructorsClasses";
+import Payment from "../Pages/Shared/Payment/Payment";
 import Signup from "../Pages/Singup/Signup";
 import MyEnrolledClasses from "../Pages/StudentDahsboard/MyEnrolledClasses/MyEnrolledClasses";
 import MySelectedClasses from "../Pages/StudentDahsboard/MySelectedClasses/MySelectedClasses";
@@ -55,7 +56,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "/dashboard",
-				element: <StudentDashboard></StudentDashboard>,
+				element: (
+					<PrivateRoute>
+						<StudentDashboard></StudentDashboard>,
+					</PrivateRoute>
+				),
 			},
 			{
 				path: "/:id/MySelectedClasses",
@@ -75,11 +80,19 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "/instructorDashboard",
-				element: <InstructorDashboard></InstructorDashboard>,
+				element: (
+					<PrivateRoute>
+						<InstructorDashboard></InstructorDashboard>,
+					</PrivateRoute>
+				),
 			},
 			{
 				path: "/adminDashboard",
-				element: <AdminDashboard></AdminDashboard>,
+				element: (
+					<PrivateRoute>
+						<AdminDashboard></AdminDashboard>
+					</PrivateRoute>
+				),
 			},
 			{
 				path: "/users",
@@ -99,6 +112,14 @@ export const router = createBrowserRouter([
 				),
 				loader: () => fetch(`http://localhost:5001/classes`),
 			},
+			{
+				path: "/payment",
+				element: (
+					<PrivateRoute>
+						<Payment></Payment>
+					</PrivateRoute>
+				),
+			},
 		],
 	},
 	{
@@ -108,7 +129,11 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: "/instructors/:id",
-				element: <InstructorsClasses></InstructorsClasses>,
+				element: (
+					<PrivateRoute>
+						<InstructorsClasses></InstructorsClasses>
+					</PrivateRoute>
+				),
 				errorElement: <ErrorPage />,
 				loader: ({ params }) => {
 					return fetch(`http://localhost:5001/instructors/${params.id}`);

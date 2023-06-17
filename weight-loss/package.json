@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.1.1",
+    "@stripe/stripe-js": "^1.54.0",
     "aos": "^3.0.0-beta.6",
     "firebase": "^9.22.2",
     "localforage": "^1.10.0",
