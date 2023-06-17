@@ -17,7 +17,9 @@ const ClassCard = ({ classes }) => {
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);
-				const isAdminInstructor = currentUser[0]?.userRole !== "student";
+				const isAdminInstructor =
+					currentUser[0]?.userRole === "admin" ||
+					currentUser[0]?.userRole === "instructor";
 				const id = currentUser[0]?._id;
 				const isSelected = currentUser[0]?.mySelectedClasses
 					? currentUser[0]?.mySelectedClasses.includes(classes._id)

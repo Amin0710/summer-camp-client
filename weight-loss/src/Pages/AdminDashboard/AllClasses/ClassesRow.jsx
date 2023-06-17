@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSkullCrossbones } from "react-icons/fa";
 import { FcFeedback } from "react-icons/fc";
 import { MdGppGood } from "react-icons/md";
@@ -8,6 +8,20 @@ const ClassesRow = ({ eachClass }) => {
 	const [activeButton, setActiveButton] = useState(
 		eachClass?.status === "pending"
 	);
+	const [instructorEmail, setInstructorEmail] = useState("");
+
+	useEffect(() => {
+		fetch("http://localhost:5001/instructors")
+			.then((res) => res.json())
+			.then((data) => {
+				const instructor = data.find(
+					(data) => data.name === eachClass?.instructorName
+				);
+				const instructorEmail = instructor?.email;
+				setInstructorEmail(instructorEmail);
+			})
+			.catch((error) => console.error(error));
+	}, [eachClass?.instructorName]);
 
 	const handleButtonClick = (id, status) => {
 		fetch(`http://localhost:5001/classes/${status}/${id}`, {
@@ -41,7 +55,7 @@ const ClassesRow = ({ eachClass }) => {
 				</div>
 			</td>
 			<td className="text-center px-0">{eachClass.instructorName}</td>
-			<td className="text-center px-0">{eachClass.gender}</td>
+			<td className="text-center px-0">{instructorEmail}</td>
 			<td className="text-center px-0">{eachClass.availableSeats}</td>
 			<td className="text-center px-0">${eachClass.price}</td>
 			<td className="text-center px-0">{eachClass.status}</td>

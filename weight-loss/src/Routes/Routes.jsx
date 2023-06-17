@@ -64,8 +64,6 @@ export const router = createBrowserRouter([
 						<MySelectedClasses></MySelectedClasses>
 					</PrivateRoute>
 				),
-				loader: () =>
-					fetch(`http://localhost:5001/${params.id}/MySelectedClasses`),
 			},
 			{
 				path: "/:id/MyEnrolledClasses",
@@ -74,8 +72,6 @@ export const router = createBrowserRouter([
 						<MyEnrolledClasses></MyEnrolledClasses>
 					</PrivateRoute>
 				),
-				loader: () =>
-					fetch(`http://localhost:5001/${params.id}/MyEnrolledClasses`),
 			},
 			{
 				path: "/instructorDashboard",

@@ -181,6 +181,7 @@ const Login = () => {
 							Login with
 							<img src={google} alt="" className="ml-1 btn-icon w-5 h-5" />
 						</button>
+						<p className="text-red-700 text-center">{error || googleError}</p>
 						<p className="my-4 text-center">
 							New to Shape Shed
 							<Link className="text-[#00AEEF] font-bold" to="/signup">
@@ -189,11 +190,10 @@ const Login = () => {
 							</Link>{" "}
 						</p>
 					</div>
-					<p className="text-red-700 text-center">{error || googleError}</p>
 				</div>
 				<ToastContainer
 					position="top-right"
-					autoClose={10000}
+					autoClose={1000}
 					newestOnTop={false}
 					closeOnClick
 					rtl={false}

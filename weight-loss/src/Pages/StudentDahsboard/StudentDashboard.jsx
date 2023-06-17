@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 const StudentDashboard = () => {
 	const { user } = useContext(AuthContext);
-	const [adminUser, setAdminUser] = useState();
+	const [studentUser, setStudentUser] = useState();
 	useEffect(() => {
 		fetch("http://localhost:5001/users")
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);
-				const adminUser = currentUser[0];
-				setAdminUser(adminUser);
+				const studentUser = currentUser[0];
+				setStudentUser(studentUser);
 			})
 			.catch((error) => console.error(error));
 	}, [user?.email]);
@@ -27,13 +27,13 @@ const StudentDashboard = () => {
 						<h1
 							className="text-5xl font-bold mb-4 p-4 mt-5"
 							style={{ fontFamily: "BungeeShade" }}>
-							{`${adminUser?.name}`}
+							{`${studentUser?.name}`}
 						</h1>
 						<div className="flex flex-row-reverse justify-around items-center p-2">
 							<div>
 								<img
-									src={adminUser?.photoURL}
-									alt={adminUser?.name}
+									src={studentUser?.photoURL}
+									alt={studentUser?.name}
 									className="h-[350px] rounded"
 								/>
 							</div>
@@ -42,25 +42,25 @@ const StudentDashboard = () => {
 									<div className="flex">
 										<p className="text-left w-48">Email</p>
 										<p className="uppercase text-[#FF6600]">
-											: {adminUser?.email}
+											: {studentUser?.email}
 										</p>
 									</div>
 									<div className="flex">
 										<p className="text-left w-48">Phone Number</p>
 										<p className="uppercase text-[#FF6600]">
-											: {adminUser?.phoneNumber}
+											: {studentUser?.phoneNumber}
 										</p>
 									</div>
 									<div className="flex">
 										<p className="text-left w-48">Gender</p>
 										<p className="uppercase text-[#FF6600]">
-											: {adminUser?.gender}
+											: {studentUser?.gender}
 										</p>
 									</div>
 									<div className="flex">
 										<p className="text-left w-48">Role</p>
 										<p className="uppercase text-[#FF6600]">
-											: {adminUser?.userRole}
+											: {studentUser?.userRole}
 										</p>
 									</div>
 								</div>
@@ -84,7 +84,9 @@ const StudentDashboard = () => {
 								</p>
 								<div className="card-actions justify-center">
 									<button className="btn bg-[#FFFAFA] text-[#FF6600]">
-										<Link to="/allClasses">See Wishlist</Link>
+										<Link to={`/${studentUser?._id}/MySelectedClasses`}>
+											See Wishlist
+										</Link>
 									</button>
 								</div>
 							</div>
@@ -99,7 +101,9 @@ const StudentDashboard = () => {
 								</p>
 								<div className="card-actions justify-center">
 									<button className="btn bg-[#FFFAFA] text-[#FF6600]">
-										<Link to="/users">See Enrolled classes</Link>
+										<Link to={`/${studentUser?._id}/MyEnrolledClasses`}>
+											See Enrolled classes
+										</Link>
 									</button>
 								</div>
 							</div>

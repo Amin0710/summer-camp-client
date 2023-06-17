@@ -39,7 +39,7 @@ const Home = () => {
 			<div className="h-screen overflow-y-auto bg-[#FFFAFA]">
 				<ToastContainer
 					position="top-right"
-					autoClose={10000}
+					autoClose={1000}
 					newestOnTop={false}
 					closeOnClick
 					rtl={false}
