@@ -12,7 +12,6 @@ const AddAClass = () => {
 	const { user } = useContext(AuthContext);
 	const [accepted, setAccepted] = useState(false);
 	const [error, setError] = useState("");
-
 	const handleAddClass = (event) => {
 		event.preventDefault();
 		const form = event.target;
@@ -23,8 +22,8 @@ const AddAClass = () => {
 			image: form.photo.value,
 			instructorName: form.instructorName.value,
 			instructorEmail: form.email.value,
-			price: price,
-			availableSeats: form.photo.availableSeats,
+			price: parseFloat(price),
+			availableSeats: parseFloat(form.availableSeats.value),
 			status: "Pending",
 		};
 

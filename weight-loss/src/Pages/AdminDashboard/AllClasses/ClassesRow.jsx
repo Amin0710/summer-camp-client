@@ -4,7 +4,7 @@ import { FcFeedback } from "react-icons/fc";
 import { MdGppGood } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const ClassesRow = ({ eachClass }) => {
+const ClassesRow = ({ eachClass, editID }) => {
 	const [activeButton, setActiveButton] = useState(
 		eachClass?.status === "pending"
 	);
@@ -80,9 +80,7 @@ const ClassesRow = ({ eachClass }) => {
 					</button>
 					<button
 						className="btn text-3xl px-2 bg-[#00AEEF] text-[#FFFAFA]"
-						// TODO modal
-						// onClick={() => handleButtonClick(eachClass._id, "Send Feedback")}
-					>
+						onClick={() => editID(eachClass._id)}>
 						<FcFeedback /> <p className="text-sm">Send Feedback</p>
 					</button>
 				</div>

@@ -95,20 +95,24 @@ export const router = createBrowserRouter([
 				),
 			},
 			{
-				path: "/MyAddedClasses/:id",
-				element: (
-					<PrivateRoute>
-						<MyAddedClasses></MyAddedClasses>
-					</PrivateRoute>
-				),
-			},
-			{
 				path: "/addAClass",
 				element: (
 					<PrivateRoute>
 						<AddAClass></AddAClass>
 					</PrivateRoute>
 				),
+			},
+			{
+				path: "/MyAddedClasses/:id",
+				element: (
+					<PrivateRoute>
+						<MyAddedClasses></MyAddedClasses>
+					</PrivateRoute>
+				),
+				loader: () =>
+					fetch(
+						`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes`
+					),
 			},
 			{
 				path: "/adminDashboard",
