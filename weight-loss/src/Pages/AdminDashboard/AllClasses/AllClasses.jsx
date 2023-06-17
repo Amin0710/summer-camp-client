@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
-import UserRow from "./UserRow";
+import ClassesRow from "./ClassesRow";
 
-const User = () => {
-	const users = useLoaderData();
+const AllClasses = () => {
+	const classes = useLoaderData();
 
 	return (
 		<>
 			<Helmet>
-				<title>ShapeShed | Users</title>
+				<title>ShapeShed | All Classes</title>
 			</Helmet>
 			<div className="bg-[#FFFAFA]">
 				<div className="container mx-auto py-8 text-center">
@@ -23,18 +23,21 @@ const User = () => {
 								{/* head */}
 								<thead>
 									<tr>
-										<th>User Name</th>
-										<th className="text-center px-0">Email</th>
-										<th className="text-center px-0">Gender</th>
-										<th className="text-center px-0">Phone Number</th>
-										<th className="text-center px-0">Current Role</th>
-										<th className="text-center px-0">Delete</th>
+										<th>Class Name</th>
+										<th className="text-center px-0">Instructor Name</th>
+										<th className="text-center px-0">Instructor Email</th>
+										<th className="text-center px-0">Available seats</th>
+										<th className="text-center px-0">Price</th>
+										<th className="text-center px-0">Status</th>
+										<th className="text-center px-0">Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 									{/* rows */}
-									{users.map((user) => (
-										<UserRow key={user._id} user={user}></UserRow>
+									{classes.map((eachClass) => (
+										<ClassesRow
+											key={eachClass._id}
+											eachClass={eachClass}></ClassesRow>
 									))}
 								</tbody>
 							</table>
@@ -46,4 +49,4 @@ const User = () => {
 	);
 };
 
-export default User;
+export default AllClasses;

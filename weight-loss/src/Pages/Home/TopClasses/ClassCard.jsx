@@ -31,9 +31,7 @@ const ClassCard = ({ classes }) => {
 				<h2 className="card-title">{classes?.name}</h2>
 				<div className="flex flex-col items-start">
 					<div className="text">
-						{classes?.instructorName
-							? `Instructor Name: ${classes?.instructorName}`
-							: ""}
+						{`Instructor Name: ${classes?.instructorName}`}
 					</div>
 					<div className="text">Price: ${classes?.price}</div>
 					<div className="text">Available Seats: {classes?.availableSeats}</div>

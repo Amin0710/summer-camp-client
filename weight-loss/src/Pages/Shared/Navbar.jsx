@@ -13,8 +13,8 @@ const Navbar = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);
-				const isAdmin = currentUser[0].userRole === "admin";
-				const isInstructor = currentUser[0].userRole === "instructor";
+				const isAdmin = currentUser[0]?.userRole === "admin";
+				const isInstructor = currentUser[0]?.userRole === "instructor";
 				setIsAdmin(isAdmin);
 				setIsInstructor(isInstructor);
 			})

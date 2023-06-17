@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import AdminDashboard from "../Pages/AdminDashboard/AllUsers/AdminDashboard";
+import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard";
+import AllClasses from "../Pages/AdminDashboard/AllClasses/AllClasses";
 import User from "../Pages/AdminDashboard/Allusers/User";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
@@ -70,6 +71,15 @@ export const router = createBrowserRouter([
 					</PrivateRoute>
 				),
 				loader: () => fetch(`http://localhost:5001/users`),
+			},
+			{
+				path: "/allClasses",
+				element: (
+					<PrivateRoute>
+						<AllClasses></AllClasses>
+					</PrivateRoute>
+				),
+				loader: () => fetch(`http://localhost:5001/classes`),
 			},
 		],
 	},
