@@ -39,9 +39,11 @@ const InstructorsClasses = () => {
 						</div>
 					</div>
 					<div className="flex flex-wrap mt-4 gap-1 justify-around">
-						{instructor.classes.map((classes, index) => (
-							<ClassCard key={index} classes={classes}></ClassCard>
-						))}
+						{instructor.classes
+							.filter((c) => c?.status === "approved")
+							.map((classes, index) => (
+								<ClassCard key={index} classes={classes}></ClassCard>
+							))}
 					</div>
 				</div>
 			</div>

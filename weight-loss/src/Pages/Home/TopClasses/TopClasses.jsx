@@ -12,9 +12,9 @@ const TopClasses = () => {
 	}, []);
 
 	// Lesser available seats more populer class
-	const sortedArray = classes.sort(
-		(a, b) => a.availableSeats - b.availableSeats
-	);
+	const sortedArray = classes
+		.filter((c) => c?.status === "approved")
+		.sort((a, b) => a.availableSeats - b.availableSeats);
 	const topSixClasses = sortedArray.slice(0, 6);
 
 	return (

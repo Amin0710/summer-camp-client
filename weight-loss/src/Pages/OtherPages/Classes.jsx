@@ -4,6 +4,7 @@ import ClassCard from "../Home/TopClasses/ClassCard";
 
 const Classes = () => {
 	const classes = useLoaderData();
+	const approvedClasses = classes.filter((c) => c?.status === "approved");
 
 	return (
 		<>
@@ -18,7 +19,7 @@ const Classes = () => {
 						All Classes
 					</h1>
 					<div className="flex flex-wrap mt-4 gap-1 justify-around">
-						{classes.map((classes) => (
+						{approvedClasses.map((classes) => (
 							<ClassCard key={classes._id} classes={classes}></ClassCard>
 						))}
 					</div>
