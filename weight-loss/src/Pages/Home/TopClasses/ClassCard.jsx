@@ -4,7 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 
 const ClassCard = ({ classes }) => {
 	const { user } = useContext(AuthContext);
-	const [isAdminUser, setIsAdminUser] = useState(false);
+	const [isAdminInstructor, setIsAdminInstructor] = useState(false);
 	const location = useLocation();
 	const isHomePage = location.pathname === "/";
 	useEffect(() => {
@@ -12,8 +12,8 @@ const ClassCard = ({ classes }) => {
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);
-				const isAdminUser = currentUser[0].userRole === "admin";
-				setIsAdminUser(isAdminUser);
+				const isAdminInstructor = currentUser[0].userRole !== "student";
+				setIsAdminInstructor(isAdminInstructor);
 			})
 			.catch((error) => console.error(error));
 	}, [user?.email]);
@@ -44,8 +44,12 @@ const ClassCard = ({ classes }) => {
 					<Link>
 						<button
 							className="btn bg-[#FFFAFA] text-[#00AEEF] w-full disabled:text-gray-400"
-							disabled={isAdminUser || isSeatZero}>
-							{isAdminUser ? "You are admin" : isSeatZero ? "Full" : "Select"}
+							disabled={isAdminInstructor || isSeatZero}>
+							{isAdminInstructor
+								? "You are admin"
+								: isSeatZero
+								? "Full"
+								: "Select"}
 						</button>
 					</Link>
 				</div>

@@ -15,7 +15,7 @@ const AllClasses = () => {
 					<h1
 						className="text-5xl font-bold mb-4 text-[#FF6600] bg-[#00AEEF] bg-opacity-30 rounded-lg p-4 mt-5"
 						style={{ fontFamily: "BungeeShade" }}>
-						All Users
+						All Classes
 					</h1>
 					<div>
 						<div className="overflow-x-auto w-full">

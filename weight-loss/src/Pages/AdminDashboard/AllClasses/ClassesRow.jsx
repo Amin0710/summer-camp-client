@@ -60,7 +60,7 @@ const ClassesRow = ({ eachClass }) => {
 						<FaSkullCrossbones /> <p className="text-sm">Deny</p>
 					</button>
 					<button
-						className="btn text-3xl px-2 me-2 bg-[#00AEEF] text-[#FFFAFA]"
+						className="btn text-3xl px-2 bg-[#00AEEF] text-[#FFFAFA]"
 						// TODO modal
 						// onClick={() => handleButtonClick(eachClass._id, "Send Feedback")}
 					>
