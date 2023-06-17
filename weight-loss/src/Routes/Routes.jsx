@@ -5,7 +5,9 @@ import AllClasses from "../Pages/AdminDashboard/AllClasses/AllClasses";
 import User from "../Pages/AdminDashboard/Allusers/User";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
+import AddAClass from "../Pages/InstructorDashboard/AddAClass";
 import InstructorDashboard from "../Pages/InstructorDashboard/InstructorDashboard";
+import MyAddedClasses from "../Pages/InstructorDashboard/MyAddedClasses/MyAddedClasses";
 import Login from "../Pages/Login/Login";
 import Classes from "../Pages/OtherPages/Classes";
 import Instructors from "../Pages/OtherPages/Instructors";
@@ -89,6 +91,22 @@ export const router = createBrowserRouter([
 				element: (
 					<PrivateRoute>
 						<InstructorDashboard></InstructorDashboard>,
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/MyAddedClasses/:id",
+				element: (
+					<PrivateRoute>
+						<MyAddedClasses></MyAddedClasses>
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/addAClass",
+				element: (
+					<PrivateRoute>
+						<AddAClass></AddAClass>
 					</PrivateRoute>
 				),
 			},

@@ -5,7 +5,6 @@ import { toast, ToastContainer } from "react-toastify";
 import logo from "../../../public/assets/shapeshed-logo.png";
 import google from "../../assets/google.png";
 import { Helmet } from "react-helmet-async";
-import Swal from "sweetalert2";
 import {
 	loadCaptchaEnginge,
 	LoadCanvasTemplate,
@@ -56,15 +55,6 @@ const Login = () => {
 		const password = form.password.value;
 		signIn(email, password)
 			.then(() => {
-				Swal.fire({
-					title: "User Login Successful.",
-					showClass: {
-						popup: "animate__animated animate__fadeInDown",
-					},
-					hideClass: {
-						popup: "animate__animated animate__fadeOutUp",
-					},
-				});
 				navigate(from, { replace: true });
 			})
 			.catch((error) => {

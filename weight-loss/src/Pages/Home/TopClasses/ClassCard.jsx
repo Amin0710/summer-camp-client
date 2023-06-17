@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const ClassCard = ({ classes }) => {
 	const { user } = useContext(AuthContext);
 	const [isAdminInstructor, setIsAdminInstructor] = useState(false);
+	const [enrolled, setEnrolled] = useState(false);
 	const [selected, setSelected] = useState(false);
 	const [userId, setUserId] = useState();
 	const [userName, setUserName] = useState();
@@ -21,12 +22,16 @@ const ClassCard = ({ classes }) => {
 					currentUser[0]?.userRole === "admin" ||
 					currentUser[0]?.userRole === "instructor";
 				const id = currentUser[0]?._id;
-				const isSelected = currentUser[0]?.mySelectedClasses
-					? currentUser[0]?.mySelectedClasses.includes(classes._id)
-					: false;
+				const isSelected = currentUser[0]?.mySelectedClasses.includes(
+					classes._id
+				);
+				const isEnrolled = currentUser[0]?.myEnrolledClasses.includes(
+					classes._id
+				);
 				setIsAdminInstructor(isAdminInstructor);
 				setUserId(id);
 				setSelected(isSelected);
+				setEnrolled(isEnrolled);
 				setUserName(currentUser[0]?.name);
 			})
 			.catch((error) => console.error(error));
@@ -90,12 +95,14 @@ const ClassCard = ({ classes }) => {
 					<Link>
 						<button
 							className="btn bg-[#FFFAFA] text-[#00AEEF] w-full disabled:text-gray-400"
-							disabled={isAdminInstructor || isSeatZero || selected}
+							disabled={isAdminInstructor || isSeatZero || selected || enrolled}
 							onClick={() => handleSelectButtonClick(userId)}>
 							{isAdminInstructor
 								? "You are Admin/Instructor"
 								: isSeatZero
 								? "Full"
+								: enrolled
+								? "Already Enrolled"
 								: selected
 								? "Already Selected"
 								: "Select"}
