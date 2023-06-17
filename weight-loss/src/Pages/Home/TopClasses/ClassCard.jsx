@@ -1,10 +1,23 @@
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const ClassCard = ({ classes }) => {
+	const { user } = useContext(AuthContext);
+	const [isAdminUser, setIsAdminUser] = useState(false);
 	const location = useLocation();
 	const isHomePage = location.pathname === "/";
+	useEffect(() => {
+		fetch("http://localhost:5001/users")
+			.then((res) => res.json())
+			.then((data) => {
+				const currentUser = data.filter((data) => data.email === user?.email);
+				const isAdminUser = currentUser[0].userRole === "admin";
+				setIsAdminUser(isAdminUser);
+			})
+			.catch((error) => console.error(error));
+	}, [user?.email]);
 
-	const adminUser = false;
 	const isSeatZero = !classes?.availableSeats;
 	const bgColor = isSeatZero && !isHomePage ? "bg-red-600" : "bg-[#00AEEF]";
 	return (
@@ -32,9 +45,9 @@ const ClassCard = ({ classes }) => {
 				<div className={`${isHomePage ? "hidden" : ""}`}>
 					<Link>
 						<button
-							className="btn bg-[#FFFAFA] text-[#00AEEF] w-full"
-							disabled={adminUser || isSeatZero}>
-							{isSeatZero ? "Full" : "Select"}
+							className="btn bg-[#FFFAFA] text-[#00AEEF] w-full disabled:text-gray-400"
+							disabled={isAdminUser || isSeatZero}>
+							{isAdminUser ? "You are admin" : isSeatZero ? "Full" : "Select"}
 						</button>
 					</Link>
 				</div>
