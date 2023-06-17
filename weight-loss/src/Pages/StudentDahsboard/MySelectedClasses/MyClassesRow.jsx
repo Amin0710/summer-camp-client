@@ -34,7 +34,7 @@ const MyClassesRow = ({ myClass }) => {
 			.catch((error) => console.error(error));
 	}, [myClass?.instructorName]);
 
-	const handleSelectButtonClick = (id) => {
+	const handleRemoveButtonClick = (id) => {
 		fetch(`http://localhost:5001/users/${myClass._id}/${id}/remove`, {
 			method: "PATCH",
 		})
@@ -70,7 +70,7 @@ const MyClassesRow = ({ myClass }) => {
 			<td className="text-center px-0">${myClass.price}</td>
 			<th className="text-center">
 				<div>
-					<Link to="/payment">
+					<Link to={`/payment?classId=${myClass._id}&userId=${userId}`}>
 						<button className="btn bg-[#FFFAFA] text-[#00AEEF] text-3xl px-2 me-2">
 							<MdPayment /> <p className="text-sm">Pay Now</p>
 						</button>
@@ -80,7 +80,7 @@ const MyClassesRow = ({ myClass }) => {
 			<th className="text-center">
 				<button
 					className="btn bg-[#FF6600] text-[#FFFAFA] text-3xl px-2"
-					onClick={() => handleSelectButtonClick(userId)}>
+					onClick={() => handleRemoveButtonClick(userId)}>
 					<MdDeleteForever />
 				</button>
 			</th>
