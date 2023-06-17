@@ -9,22 +9,31 @@ const Payment = () => {
 	const userId = queryParams.get("userId");
 
 	const handlePayButtonClick = () => {
-		fetch(`http://localhost:5001/users/${classId}/${userId}/remove`, {
-			method: "PATCH",
-		})
+		fetch(
+			`https://b7a12-summer-camp-server-side-amin0710.vercel.app/users/${classId}/${userId}/remove`,
+			{
+				method: "PATCH",
+			}
+		)
 			.then((res) => res.json())
 			.then(() => {
-				fetch(`http://localhost:5001/users/${classId}/${userId}/enrolled`, {
-					method: "PATCH",
-				})
+				fetch(
+					`https://b7a12-summer-camp-server-side-amin0710.vercel.app/users/${classId}/${userId}/enrolled`,
+					{
+						method: "PATCH",
+					}
+				)
 					.then((res) => res.json())
 					.then(() => {
-						fetch(`http://localhost:5001/classes/${classId}`, {
-							method: "PATCH",
-							headers: {
-								"Content-Type": "application/json",
-							},
-						})
+						fetch(
+							`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes/${classId}`,
+							{
+								method: "PATCH",
+								headers: {
+									"Content-Type": "application/json",
+								},
+							}
+						)
 							.then((res) => res.json())
 							.then((data) => {
 								if (data.modifiedCount) {

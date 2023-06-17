@@ -11,7 +11,7 @@ const MyClassesRow = ({ myClass }) => {
 	const [userName, setUserName] = useState("");
 
 	useEffect(() => {
-		fetch("http://localhost:5001/users")
+		fetch("https://b7a12-summer-camp-server-side-amin0710.vercel.app/users")
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);
@@ -22,7 +22,9 @@ const MyClassesRow = ({ myClass }) => {
 	}, [user?.email]);
 
 	useEffect(() => {
-		fetch("http://localhost:5001/instructors")
+		fetch(
+			"https://b7a12-summer-camp-server-side-amin0710.vercel.app/instructors"
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				const instructor = data.find(
@@ -35,9 +37,12 @@ const MyClassesRow = ({ myClass }) => {
 	}, [myClass?.instructorName]);
 
 	const handleRemoveButtonClick = (id) => {
-		fetch(`http://localhost:5001/users/${myClass._id}/${id}/remove`, {
-			method: "PATCH",
-		})
+		fetch(
+			`https://b7a12-summer-camp-server-side-amin0710.vercel.app/users/${myClass._id}/${id}/remove`,
+			{
+				method: "PATCH",
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount) {

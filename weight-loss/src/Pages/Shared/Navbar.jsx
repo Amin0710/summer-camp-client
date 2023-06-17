@@ -9,7 +9,7 @@ const Navbar = () => {
 	const [isInstructor, setIsInstructor] = useState(false);
 
 	useEffect(() => {
-		fetch("http://localhost:5001/users")
+		fetch("https://b7a12-summer-camp-server-side-amin0710.vercel.app/users")
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);

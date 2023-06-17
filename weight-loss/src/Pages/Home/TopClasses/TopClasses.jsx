@@ -5,7 +5,7 @@ const TopClasses = () => {
 	const [classes, setClasses] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5001/classes")
+		fetch("https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes")
 			.then((res) => res.json())
 			.then((data) => setClasses(data))
 			.catch((error) => console.error(error));

@@ -47,12 +47,18 @@ export const router = createBrowserRouter([
 			{
 				path: "/instructors",
 				element: <Instructors></Instructors>,
-				loader: () => fetch(`http://localhost:5001/instructors`),
+				loader: () =>
+					fetch(
+						`https://b7a12-summer-camp-server-side-amin0710.vercel.app/instructors`
+					),
 			},
 			{
 				path: "/classes",
 				element: <Classes></Classes>,
-				loader: () => fetch(`http://localhost:5001/classes`),
+				loader: () =>
+					fetch(
+						`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes`
+					),
 			},
 			{
 				path: "/dashboard",
@@ -101,7 +107,10 @@ export const router = createBrowserRouter([
 						<User></User>
 					</PrivateRoute>
 				),
-				loader: () => fetch(`http://localhost:5001/users`),
+				loader: () =>
+					fetch(
+						`https://b7a12-summer-camp-server-side-amin0710.vercel.app/users`
+					),
 			},
 			{
 				path: "/allClasses",
@@ -110,7 +119,10 @@ export const router = createBrowserRouter([
 						<AllClasses></AllClasses>
 					</PrivateRoute>
 				),
-				loader: () => fetch(`http://localhost:5001/classes`),
+				loader: () =>
+					fetch(
+						`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes`
+					),
 			},
 			{
 				path: "/payment",
@@ -136,7 +148,9 @@ export const router = createBrowserRouter([
 				),
 				errorElement: <ErrorPage />,
 				loader: ({ params }) => {
-					return fetch(`http://localhost:5001/instructors/${params.id}`);
+					return fetch(
+						`https://b7a12-summer-camp-server-side-amin0710.vercel.app/instructors/${params.id}`
+					);
 				},
 			},
 		],

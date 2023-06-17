@@ -11,7 +11,9 @@ const ClassesRow = ({ eachClass }) => {
 	const [instructorEmail, setInstructorEmail] = useState("");
 
 	useEffect(() => {
-		fetch("http://localhost:5001/instructors")
+		fetch(
+			"https://b7a12-summer-camp-server-side-amin0710.vercel.app/instructors"
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				const instructor = data.find(
@@ -24,9 +26,12 @@ const ClassesRow = ({ eachClass }) => {
 	}, [eachClass?.instructorName]);
 
 	const handleButtonClick = (id, status) => {
-		fetch(`http://localhost:5001/classes/${status}/${id}`, {
-			method: "PATCH",
-		})
+		fetch(
+			`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes/${status}/${id}`,
+			{
+				method: "PATCH",
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount) {

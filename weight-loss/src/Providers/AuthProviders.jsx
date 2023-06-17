@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
 	const [userEmails, setUserEmails] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5001/users")
+		fetch("https://b7a12-summer-camp-server-side-amin0710.vercel.app/users")
 			.then((res) => res.json())
 			.then((data) => {
 				const userEmails = data.flatMap((data) => data.email);
@@ -76,13 +76,16 @@ const AuthProvider = ({ children }) => {
 						photoURL: loggedInUser.photoURL,
 						userRole: "student",
 					};
-					fetch("http://localhost:5001/users", {
-						method: "POST",
-						headers: {
-							"content-type": "application/json",
-						},
-						body: JSON.stringify(saveUser),
-					})
+					fetch(
+						"https://b7a12-summer-camp-server-side-amin0710.vercel.app/users",
+						{
+							method: "POST",
+							headers: {
+								"content-type": "application/json",
+							},
+							body: JSON.stringify(saveUser),
+						}
+					)
 						.then((res) => res.json())
 						.then((data) => {
 							if (data.insertedId) {

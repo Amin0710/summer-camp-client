@@ -13,7 +13,7 @@ const ClassCard = ({ classes }) => {
 	const isHomePage = location.pathname === "/";
 
 	useEffect(() => {
-		fetch("http://localhost:5001/users")
+		fetch("https://b7a12-summer-camp-server-side-amin0710.vercel.app/users")
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);
@@ -42,9 +42,12 @@ const ClassCard = ({ classes }) => {
 				timer: 3000,
 			});
 		} else {
-			fetch(`http://localhost:5001/users/${classes._id}/${id}`, {
-				method: "PATCH",
-			})
+			fetch(
+				`https://b7a12-summer-camp-server-side-amin0710.vercel.app/users/${classes._id}/${id}`,
+				{
+					method: "PATCH",
+				}
+			)
 				.then((res) => res.json())
 				.then((data) => {
 					if (data.modifiedCount) {

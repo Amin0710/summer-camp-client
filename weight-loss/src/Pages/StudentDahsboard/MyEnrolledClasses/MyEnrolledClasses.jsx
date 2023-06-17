@@ -8,7 +8,7 @@ const MyEnrolledClasses = () => {
 	const [myClassesID, setMyClassesID] = useState([]);
 	const [myClasses, setMyClasses] = useState([]);
 	useEffect(() => {
-		fetch("http://localhost:5001/users")
+		fetch("https://b7a12-summer-camp-server-side-amin0710.vercel.app/users")
 			.then((res) => res.json())
 			.then((data) => {
 				const currentUser = data.filter((data) => data.email === user?.email);
@@ -17,7 +17,9 @@ const MyEnrolledClasses = () => {
 				setMyClassesID(myClassesID);
 			})
 			.then(() => {
-				fetch("http://localhost:5001/classes")
+				fetch(
+					"https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes"
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						const myClasses = data.filter((data) =>

@@ -7,9 +7,12 @@ const UserRow = ({ user }) => {
 	const [activeButton, setActiveButton] = useState(user?.userRole || "student");
 
 	const handleButtonClick = (id, role) => {
-		fetch(`http://localhost:5001/users/${role}/${id}`, {
-			method: "PATCH",
-		})
+		fetch(
+			`https://b7a12-summer-camp-server-side-amin0710.vercel.app/users/${role}/${id}`,
+			{
+				method: "PATCH",
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount) {
