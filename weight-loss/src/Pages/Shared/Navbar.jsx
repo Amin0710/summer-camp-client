@@ -1,10 +1,25 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../../public/assets/shapeshed-logo.png";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 const Navbar = () => {
 	const { user, loading, logOut } = useContext(AuthContext);
+	const [isAdmin, setIsAdmin] = useState(false);
+	const [isInstructor, setIsInstructor] = useState(false);
+
+	useEffect(() => {
+		fetch("http://localhost:5001/users")
+			.then((res) => res.json())
+			.then((data) => {
+				const currentUser = data.filter((data) => data.email === user?.email);
+				const isAdmin = currentUser[0].userRole === "admin";
+				const isInstructor = currentUser[0].userRole === "instructor";
+				setIsAdmin(isAdmin);
+				setIsInstructor(isInstructor);
+			})
+			.catch((error) => console.error(error));
+	}, [user?.email]);
 
 	const handleMouseOver = () => {
 		const userName = document.getElementById("userName");
@@ -81,7 +96,16 @@ const Navbar = () => {
 								tabIndex={0}
 								className="menu menu-compact dropdown-content mt-3 shadow bg-[#F5F5F5] rounded-box relative z-10">
 								<li>
-									<Link to="/dashboard">Dashboard</Link>
+									<Link
+										to={
+											isAdmin
+												? "/adminDashboard"
+												: isInstructor
+												? "/instructorDashboard"
+												: "/dashboard"
+										}>
+										Dashboard
+									</Link>
 								</li>
 								<li>
 									<button onClick={logOut}>Log Out</button>
