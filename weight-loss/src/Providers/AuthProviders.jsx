@@ -11,6 +11,7 @@ import {
 import { useEffect } from "react";
 import { createContext, useState } from "react";
 import { app } from "../firebase/firebase.config";
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -19,6 +20,18 @@ const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [googleError, setGoogleError] = useState("");
+
+	const [userEmails, setUserEmails] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:5001/users")
+			.then((res) => res.json())
+			.then((data) => {
+				const userEmails = data.flatMap((data) => data.email);
+				setUserEmails(userEmails);
+			})
+			.catch((error) => console.error(error));
+	}, []);
 
 	const createUser = (
 		email,
@@ -54,6 +67,37 @@ const AuthProvider = ({ children }) => {
 		return signInWithPopup(auth, providerGoogle)
 			.then((result) => {
 				const loggedInUser = result.user;
+				if (!userEmails.includes(loggedInUser.email)) {
+					const saveUser = {
+						name: loggedInUser.displayName,
+						email: loggedInUser.email,
+						gender: loggedInUser.gender,
+						password: loggedInUser.password,
+						phoneNumber: loggedInUser.phoneNumber,
+						photoURL: loggedInUser.photoURL,
+						userRole: "student",
+					};
+					fetch("http://localhost:5001/users", {
+						method: "POST",
+						headers: {
+							"content-type": "application/json",
+						},
+						body: JSON.stringify(saveUser),
+					})
+						.then((res) => res.json())
+						.then((data) => {
+							if (data.insertedId) {
+								Swal.fire({
+									position: "top-end",
+									icon: "success",
+									title: "User created successfully.",
+									showConfirmButton: false,
+									timer: 1500,
+								});
+							}
+						});
+				}
+
 				setUser(loggedInUser);
 				setGoogleError("");
 				setLoading(false);

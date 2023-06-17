@@ -21,9 +21,6 @@ const Home = () => {
 				toast(
 					<div className="alert alert-success">
 						<div>You have successfully logged in!</div>
-						<div className="alert alert-warning">
-							Let&apos;s Shed and get into Shape
-						</div>
 					</div>
 				);
 			}

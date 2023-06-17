@@ -45,6 +45,8 @@ const SignUp = () => {
 							gender: data.gender,
 							password: data.password,
 							phoneNumber: data.phoneNumber,
+							photoURL: data.photoURL,
+							userRole: "student",
 						};
 						fetch("http://localhost:5001/users", {
 							method: "POST",
@@ -267,7 +269,7 @@ const SignUp = () => {
 									type="checkbox"
 									name="accept"
 									id="acceptCheckbox"
-									className="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+									className="form-checkbox h-4 w-4 text-[#00AEEF] transition duration-150 ease-in-out"
 									onClick={handleAccepted}
 								/>
 								<label htmlFor="acceptCheckbox" className="ml-2 text-sm">

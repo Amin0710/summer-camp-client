@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import User from "../Pages/AdminDashboard/User";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -37,6 +38,15 @@ export const router = createBrowserRouter([
 				),
 			},
 			{
+				path: "/users",
+				element: (
+					<PrivateRoute>
+						<User></User>
+					</PrivateRoute>
+				),
+				loader: () => fetch(`http://localhost:5001/users`),
+			},
+			{
 				path: "/instructors",
 				element: <Instructors></Instructors>,
 				loader: () => fetch(`http://localhost:5001/instructors`),
@@ -59,27 +69,6 @@ export const router = createBrowserRouter([
 				errorElement: <ErrorPage />,
 				loader: ({ params }) => {
 					return fetch(`http://localhost:5001/instructors/${params.id}`);
-				},
-			},
-		],
-	},
-	{
-		path: "games",
-		element: <Layout></Layout>,
-		errorElement: <ErrorPage />,
-		children: [
-			{
-				path: "/games/:id",
-				element: (
-					<PrivateRoute>
-						<InstructorsClasses></InstructorsClasses>
-					</PrivateRoute>
-				),
-				errorElement: <ErrorPage />,
-				loader: ({ params }) => {
-					return fetch(
-						`https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games/${params.id}`
-					);
 				},
 			},
 		],
