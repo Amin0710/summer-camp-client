@@ -47,7 +47,7 @@ const ClassesRow = ({ eachClass, editID }) => {
 								Swal.fire({
 									position: "top-end",
 									icon: "success",
-									title: `${eachClass.name} is an ${status} Now!`,
+									title: `${eachClass.name} has been ${status}`,
 									showConfirmButton: false,
 									timer: 1500,
 								});
@@ -75,7 +75,7 @@ const ClassesRow = ({ eachClass, editID }) => {
 						Swal.fire({
 							position: "top-end",
 							icon: "success",
-							title: `${eachClass.name} is an ${status} Now!`,
+							title: `${eachClass.name} has been ${status}!`,
 							showConfirmButton: false,
 							timer: 1500,
 						});

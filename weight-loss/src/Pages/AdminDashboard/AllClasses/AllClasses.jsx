@@ -2,41 +2,42 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import ClassesRow from "./ClassesRow";
+import Swal from "sweetalert2";
 
 const AllClasses = () => {
 	const classes = useLoaderData();
 	const [clickedClass, setClickedClass] = useState({});
 
-	// const sendFeedback = (event) => {
-	// 	event.preventDefault();
-	// 	const form = event.target;
-	// 	const detailFeedback = form.price.detailFeedback;
+	const sendFeedback = (event) => {
+		event.preventDefault();
+		const form = event.target;
+		const detailFeedback = form.querySelector("#detailFeedback").value;
+		console.log(detailFeedback);
 
-	// 	fetch(`http://localhost:5001/classes/feedback/${feedbackedClassID}`, {
-	// 		method: "PATCH",
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
+		fetch(`http://localhost:5001/feedbackClasses/${clickedClass._id}`, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+			},
 
-	// 		body: JSON.stringify({
-	// 			adminFeedback: detailFeedback,
-	// 		}),
-	// 	})
-	// 		.then((res) => res.json())
-	// 		.then((data) => {
-	// 			if (data.modifiedCount > 0) {
-	// 				if (data.modifiedCount) {
-	// 					Swal.fire({
-	// 						position: "top-end",
-	// 						icon: "success",
-	// 						title: `Feedback sent, You can resend it to override.`,
-	// 						showConfirmButton: false,
-	// 						timer: 1500,
-	// 					});
-	// 				}
-	// 			}
-	// 		});
-	// };
+			body: JSON.stringify({
+				adminFeedback: detailFeedback,
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.modifiedCount) {
+					Swal.fire({
+						position: "top-end",
+						icon: "success",
+						title: `Feedback sent, You can resend it to override.`,
+						showConfirmButton: false,
+						timer: 1500,
+					});
+					form.reset();
+				}
+			});
+	};
 
 	const editID = (id) => {
 		const clickedClass = classes.find((c) => c._id === id);
@@ -86,19 +87,29 @@ const AllClasses = () => {
 						<div className="modal">
 							<div className="modal-box bg-[#FFFAFA] text-[#FF6600]">
 								<h3 className="font-bold text-lg">
-									{console.log(clickedClass.status)}
-									{clickedClass?.status === "pending"
-										? "Please wait for admin's approval. No feedback yet."
-										: clickedClass?.status === "approved"
-										? "No feedback is needed. Your class has been approved successfully."
-										: clickedClass?.status === "denied"
-										? "Admin denied your class request"
-										: ""}
+									Please write the reason why you have denied the request:
 								</h3>
-								<p className="py-4">
-									{clickedClass?.status === "denied" &&
-										clickedClass?.adminFeedback}
-								</p>
+								<form onSubmit={sendFeedback}>
+									<div className="grid grid-cols-2 gap-4">
+										<div className="form-control col-span-2">
+											<textarea
+												placeholder="Detail Feedback"
+												name="detailFeedback"
+												id="detailFeedback"
+												className="textarea textarea-bordered bg-gray-200 text-[#FF6600] min-h-[200px]"
+												required></textarea>
+										</div>
+									</div>
+									<div className="flex">
+										<div className="form-control w-full mt-5">
+											<input
+												className="btn bg-[#00AEEF] text-[#FFFAFA]"
+												type="submit"
+												value="Update Game"
+											/>
+										</div>
+									</div>
+								</form>
 								<div className="modal-action">
 									<label
 										htmlFor="my_modal_6"
