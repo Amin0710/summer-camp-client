@@ -21,11 +21,12 @@ const ClassCard = ({ classes }) => {
 				const isAdminInstructor =
 					currentUser[0]?.userRole === "admin" ||
 					currentUser[0]?.userRole === "instructor";
+
 				const id = currentUser[0]?._id;
-				const isSelected = currentUser[0]?.mySelectedClasses.includes(
+				const isSelected = currentUser[0]?.mySelectedClasses?.includes(
 					classes._id
 				);
-				const isEnrolled = currentUser[0]?.myEnrolledClasses.includes(
+				const isEnrolled = currentUser[0]?.myEnrolledClasses?.includes(
 					classes._id
 				);
 				setIsAdminInstructor(isAdminInstructor);
@@ -35,7 +36,7 @@ const ClassCard = ({ classes }) => {
 				setUserName(currentUser[0]?.name);
 			})
 			.catch((error) => console.error(error));
-	}, [classes._id, user?.email]);
+	}, [classes._id, user]);
 
 	const handleSelectButtonClick = (id) => {
 		if (!user) {
