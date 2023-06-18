@@ -14,16 +14,19 @@ const AllClasses = () => {
 		const detailFeedback = form.querySelector("#detailFeedback").value;
 		console.log(detailFeedback);
 
-		fetch(`http://localhost:5001/feedbackClasses/${clickedClass._id}`, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json",
-			},
+		fetch(
+			`https://b7a12-summer-camp-server-side-amin0710.vercel.app/feedbackClasses/${clickedClass._id}`,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+				},
 
-			body: JSON.stringify({
-				adminFeedback: detailFeedback,
-			}),
-		})
+				body: JSON.stringify({
+					adminFeedback: detailFeedback,
+				}),
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount) {
