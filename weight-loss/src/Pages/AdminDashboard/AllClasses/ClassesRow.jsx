@@ -26,25 +26,63 @@ const ClassesRow = ({ eachClass, editID }) => {
 	}, [eachClass?.instructorName]);
 
 	const handleButtonClick = (id, status) => {
-		fetch(
-			`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes/${status}/${id}`,
-			{
-				method: "PATCH",
-			}
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				if (data.modifiedCount) {
-					Swal.fire({
-						position: "top-end",
-						icon: "success",
-						title: `${eachClass.name} is an ${status} Now!`,
-						showConfirmButton: false,
-						timer: 1500,
-					});
-					setActiveButton(false);
+		if (status === "denied") {
+			Swal.fire({
+				title:
+					"Please make sure you wrote a feedback why you denied the class.",
+				showDenyButton: true,
+				confirmButtonText: "Already sent feedback.",
+				denyButtonText: `Will sent feedback later.`,
+			}).then((result) => {
+				if (result.isConfirmed) {
+					fetch(
+						`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes/${status}/${id}`,
+						{
+							method: "PATCH",
+						}
+					)
+						.then((res) => res.json())
+						.then((data) => {
+							if (data.modifiedCount) {
+								Swal.fire({
+									position: "top-end",
+									icon: "success",
+									title: `${eachClass.name} is an ${status} Now!`,
+									showConfirmButton: false,
+									timer: 1500,
+								});
+								setActiveButton(false);
+							}
+						});
+				} else if (result.isDenied) {
+					Swal.fire(
+						"Changes are not saved. Please send feedback first",
+						"",
+						"error"
+					);
 				}
 			});
+		} else {
+			fetch(
+				`https://b7a12-summer-camp-server-side-amin0710.vercel.app/classes/${status}/${id}`,
+				{
+					method: "PATCH",
+				}
+			)
+				.then((res) => res.json())
+				.then((data) => {
+					if (data.modifiedCount) {
+						Swal.fire({
+							position: "top-end",
+							icon: "success",
+							title: `${eachClass.name} is an ${status} Now!`,
+							showConfirmButton: false,
+							timer: 1500,
+						});
+						setActiveButton(false);
+					}
+				});
+		}
 	};
 
 	return (
@@ -78,10 +116,16 @@ const ClassesRow = ({ eachClass, editID }) => {
 						onClick={() => handleButtonClick(eachClass._id, "denied")}>
 						<FaSkullCrossbones /> <p className="text-sm">Deny</p>
 					</button>
-					<button
-						className="btn text-3xl px-2 bg-[#00AEEF] text-[#FFFAFA]"
-						onClick={() => editID(eachClass._id)}>
-						<FcFeedback /> <p className="text-sm">Send Feedback</p>
+					{/* The button to open modal */}
+					<button>
+						<label
+							htmlFor="my_modal_6"
+							disabled={!activeButton}
+							className="btn text-3xl px-2 bg-[#00AEEF] text-[#FFFAFA] disabled:bg-gray-500 disabled:text-[#FFFAFA]"
+							onClick={() => editID(eachClass._id)}>
+							<FcFeedback />
+							<p className="text-sm">Send Feedback</p>
+						</label>
 					</button>
 				</div>
 			</th>

@@ -24,7 +24,7 @@ const AddAClass = () => {
 			instructorEmail: form.email.value,
 			price: parseFloat(price),
 			availableSeats: parseFloat(form.availableSeats.value),
-			status: "Pending",
+			status: "pending",
 		};
 
 		setError("");

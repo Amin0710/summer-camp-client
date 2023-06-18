@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FcFeedback } from "react-icons/fc";
 import { AuthContext } from "../../../Providers/AuthProviders";
 
-const AddedClassesRow = ({ eachClass }) => {
+const AddedClassesRow = ({ eachClass, editID }) => {
 	const { user } = useContext(AuthContext);
 
 	return (
@@ -30,34 +30,12 @@ const AddedClassesRow = ({ eachClass }) => {
 					<button>
 						<label
 							htmlFor="my_modal_6"
-							className="btn text-3xl px-2 bg-[#00AEEF] text-[#FFFAFA]">
+							className="btn text-3xl px-2 bg-[#00AEEF] text-[#FFFAFA] disabled:bg-gray-500 disabled:text-[#FFFAFA]"
+							onClick={() => editID(eachClass._id)}>
 							<FcFeedback />
-							<p className="text-sm">Read Feedback</p>
+							<p className="text-sm">Send Feedback</p>
 						</label>
 					</button>
-					{/* Put this part before </body> tag */}
-					<input type="checkbox" id="my_modal_6" className="modal-toggle" />
-					<div className="modal">
-						<div className="modal-box bg-[#FFFAFA] text-[#FF6600]">
-							<h3 className="font-bold text-lg">
-								{eachClass?.status === "Pending"
-									? "No Feedback yet, please wait for admin's approval."
-									: eachClass?.status === "approved"
-									? "No Feedback Needed. <br/>Your class has need approved successfully."
-									: "Admin denied your class request"}
-							</h3>
-							<p className="py-4">
-								{eachClass?.status === "denied" && eachClass?.adminFeedback}
-							</p>
-							<div className="modal-action">
-								<label
-									htmlFor="my_modal_6"
-									className="btn bg-[#FFFAFA] text-[#00AEEF] border-0">
-									Close!
-								</label>
-							</div>
-						</div>
-					</div>
 				</div>
 			</th>
 		</tr>
